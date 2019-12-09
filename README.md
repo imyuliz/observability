@@ -1,3 +1,7 @@
+---
+description: 上帝之眼
+---
+
 # 序言
 
 ## Roadmap
@@ -10,22 +14,22 @@
 
 * 部署方案选型
 * 单机部署
-* [手工部署](/deploy/manual/README.md)
-  * [部署前的准备工作](/deploy/manual/prepare.md)
-  * [部署 ETCD](/deploy/manual/bootstrapping-etcd.md)
-  * [部署 Master](/deploy/manual/bootstrapping-master.md)
-  * [部署 Worker 节点](/deploy/manual/bootstrapping-worker-nodes.md)
-  * [部署关键附加组件](/deploy/manual/deploy-critical-addons.md)
+* [手工部署](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/deploy/manual/README.md)
+  * [部署前的准备工作](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/deploy/manual/prepare.md)
+  * [部署 ETCD](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/deploy/manual/bootstrapping-etcd.md)
+  * [部署 Master](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/deploy/manual/bootstrapping-master.md)
+  * [部署 Worker 节点](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/deploy/manual/bootstrapping-worker-nodes.md)
+  * [部署关键附加组件](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/deploy/manual/deploy-critical-addons.md)
 * 使用 Kubeadm 部署集群
 * 使用 Minikube 部署测试集群
 * 使用 Bootkube 部署集群
 * 使用 Ansible 部署集群
-* [部署附加组件](/deploy/addons/README.md)
-  * [部署 CoreDNS](/deploy/addons/coredns.md)
-  * [以 Daemonset 方式部署 kube-proxy](/deploy/addons/kube-proxy.md)
+* [部署附加组件](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/deploy/addons/README.md)
+  * [部署 CoreDNS](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/deploy/addons/coredns.md)
+  * [以 Daemonset 方式部署 kube-proxy](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/deploy/addons/kube-proxy.md)
 * 常见应用部署
   * ElasticSearch 与 Kibana
-    * [使用 elastic-oparator 部署](/deploy/common/elasticsearch/install-elasticsearch-and-kibana-with-elastic-oparator.md)
+    * [使用 elastic-oparator 部署](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/deploy/common/elasticsearch/install-elasticsearch-and-kibana-with-elastic-oparator.md)
   * ETCD
   * Zookeeper
   * Consul
@@ -44,26 +48,26 @@
 
 k8s 拥有惊人的扩展能力，针对不同环境和场景可以使用不同的方案，涵盖网络、存储、运行时、Ingress、Metrics 等。k8s 知识库会帮助你彻底理清这些机制，并深入剖析各种方案的原理、用法与使用场景。
 
-* [网络方案](/plan/network/README.md)
+* [网络方案](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/plan/network/README.md)
   * 彻底理解集群网络
   * Network Policy
   * 开源网络方案
-  * [Flannel](/plan/network/flannel/README.md)
+  * [Flannel](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/plan/network/flannel/README.md)
     * Flannel 网络原理
-    * [部署 Flannel](/plan/network/flannel/deploy.md)
+    * [部署 Flannel](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/plan/network/flannel/deploy.md)
   * Macvlan
   * Calico
   * Cilium
   * Kube-router
   * Kube-OVN
   * OpenVSwitch
-* [运行时方案](/plan/runtime/README.md)
+* [运行时方案](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/plan/runtime/README.md)
   * Docker
     * Docker 介绍
     * Docker 安装
-  * [Containerd](/plan/runtime/containerd/README.md)
+  * [Containerd](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/plan/runtime/containerd/README.md)
     * containerd 介绍
-    * [安装 containerd](/plan/runtime/containerd/install-containerd.md)
+    * [安装 containerd](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/plan/runtime/containerd/install-containerd.md)
   * CRI-O
     * CRI-O 介绍
     * CRI-O 安装
@@ -72,9 +76,9 @@ k8s 拥有惊人的扩展能力，针对不同环境和场景可以使用不同�
   * OpenEBS
 * Ingress 方案
   * Nginx Ingress
-    * [安装 nginx ingress controller](/plan/ingress/nginx/install-nginx-ingress.md)
+    * [安装 nginx ingress controller](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/plan/ingress/nginx/install-nginx-ingress.md)
   * Traefik Ingress
-    * [安装 traefik ingress controller](/plan/ingress/traefik/install-traefik-ingress.md)
+    * [安装 traefik ingress controller](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/plan/ingress/traefik/install-traefik-ingress.md)
   * Contour
   * Ambassador
   * Kong
@@ -86,36 +90,36 @@ k8s 拥有惊人的扩展能力，针对不同环境和场景可以使用不同�
   * MetalLB
   * Porter
 * Metrics 方案
-  * [安装 metrics server](/plan/metrics/install-metrics-server.md)
+  * [安装 metrics server](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/plan/metrics/install-metrics-server.md)
 
 ### 最佳实践
 
 k8s 有先进的设计理念，也包含了大量概念，并提供了非常丰富的能力，用法琳琅满目，但入门比较困难，k8s 知识库将提供使用 k8s 的各种场景里的最佳实践，帮助大家少走弯路，比如如何管理和运维集群、如何进行动态伸缩、如何保证部署的服务高可用、如何在更新服务或扩缩容节点保证业务零感知、如何部署有状态服务、如何针对大规模集群进行优化、如何对资源进行隔离和共享以及针对各种需求和问题的解决方案等。
 
-* [服务高可用](/best-practice/service-ha.md)
-* [本地 DNS 缓存](/best-practice/node-local-dns.md)
-* [泛域名动态转发 Service](/best-practice/wildcard-domain-forward.md)
-* [集群权限控制](/best-practice/permission/README.md)
-  * [利用 CSR API 创建用户](/best-practice/permission/create-user-using-csr-api.md)
-  * [控制用户权限](/best-practice/permission/user.md)
-  * [控制应用权限](/best-practice/permission/app.md)
+* [服务高可用](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/service-ha.md)
+* [本地 DNS 缓存](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/node-local-dns.md)
+* [泛域名动态转发 Service](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/wildcard-domain-forward.md)
+* [集群权限控制](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/permission/README.md)
+  * [利用 CSR API 创建用户](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/permission/create-user-using-csr-api.md)
+  * [控制用户权限](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/permission/user.md)
+  * [控制应用权限](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/permission/app.md)
 * 有状态服务部署
-* [实用工具和技巧](/best-practice/useful/README.md)
-  * [kubectl 高效技巧](/best-practice/useful/efficient-kubectl.md)
-  * [实用 yaml 片段](/best-practice/useful/yaml.md)
-  * [实用命令与脚本](/best-practice/useful/shell.md)
+* [实用工具和技巧](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/useful/README.md)
+  * [kubectl 高效技巧](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/useful/efficient-kubectl.md)
+  * [实用 yaml 片段](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/useful/yaml.md)
+  * [实用命令与脚本](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/useful/shell.md)
 * 集群证书管理
-  * [安装 cert\-manager](/best-practice/cert-management/install-cert-manger.md)
-  * [使用 cert\-manager 自动生成证书](/best-practice/cert-management/autogenerate-certificate-with-cert-manager.md)
+  * [安装 cert-manager](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/cert-management/install-cert-manger.md)
+  * [使用 cert-manager 自动生成证书](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/cert-management/autogenerate-certificate-with-cert-manager.md)
 * 集群配置管理
   * Helm
-    * [安装 Helm](/best-practice/configuration-management/helm/install-helm.md)
-    * [Helm V2 迁移到 V3](/best-practice/configuration-management/helm/upgrade-helm-v2-to-v3.md)
+    * [安装 Helm](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/configuration-management/helm/install-helm.md)
+    * [Helm V2 迁移到 V3](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/configuration-management/helm/upgrade-helm-v2-to-v3.md)
     * 使用 Helm 部署与管理应用
     * 开发 Helm Charts
   * Kustomize
     * Kustomize 基础入门
-* [大规模集群优化](/best-practice/big-cluster.md)
+* [大规模集群优化](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/best-practice/big-cluster.md)
 * 弹性伸缩
   * 使用 HPA 对 Pod 水平伸缩
   * 使用 VPA 对 Pod 垂直伸缩
@@ -163,64 +167,64 @@ k8s 有先进的设计理念，也包含了大量概念，并提供了非常丰�
 
 正是 k8s 功能如此丰富强大，迭代速度如此之快，其复杂性和不确定性也非常之大。知识库会总结出各种问题的排查思路与可能原因，还有对应解决方案的最佳实践，也分享一些踩坑案例与排错技巧，与排错技巧，让大家少走弯路。
 
-* [问题排查](/troubleshooting/problems/README.md)
-  * [Pod 排错](/troubleshooting/problems/pod/README.md)
-    * [Pod 一直处于 Pending 状态](/troubleshooting/problems/pod/keep-pending.md)
-    * [Pod 一直处于 ContainerCreating 或 Waiting 状态](/troubleshooting/problems/pod/keep-containercreating-or-waiting.md)
-    * [Pod 一直处于 CrashLoopBackOff 状态](/troubleshooting/problems/pod/keep-crashloopbackoff.md)
-    * [Pod 一直处于 Terminating 状态](/troubleshooting/problems/pod/keep-terminating.md)
-    * [Pod 一直处于 Unknown 状态](/troubleshooting/problems/pod/keep-unkown.md)
-    * [Pod 一直处于 Error 状态](/troubleshooting/problems/pod/keep-error.md)
-    * [Pod 一直处于 ImagePullBackOff 状态](/troubleshooting/problems/pod/keep-imagepullbackoff.md)
-    * [Pod 一直处于 ImageInspectError 状态](/troubleshooting/problems/pod/keep-imageinspecterror.md)
-    * [Pod 健康检查失败](/troubleshooting/problems/pod/healthcheck-failed.md)
-    * [容器进程主动退出](/troubleshooting/problems/pod/container-proccess-exit-by-itself.md)
+* [问题排查](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/README.md)
+  * [Pod 排错](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/pod/README.md)
+    * [Pod 一直处于 Pending 状态](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/pod/keep-pending.md)
+    * [Pod 一直处于 ContainerCreating 或 Waiting 状态](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/pod/keep-containercreating-or-waiting.md)
+    * [Pod 一直处于 CrashLoopBackOff 状态](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/pod/keep-crashloopbackoff.md)
+    * [Pod 一直处于 Terminating 状态](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/pod/keep-terminating.md)
+    * [Pod 一直处于 Unknown 状态](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/pod/keep-unkown.md)
+    * [Pod 一直处于 Error 状态](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/pod/keep-error.md)
+    * [Pod 一直处于 ImagePullBackOff 状态](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/pod/keep-imagepullbackoff.md)
+    * [Pod 一直处于 ImageInspectError 状态](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/pod/keep-imageinspecterror.md)
+    * [Pod 健康检查失败](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/pod/healthcheck-failed.md)
+    * [容器进程主动退出](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/pod/container-proccess-exit-by-itself.md)
   * 网络排错
-    * [LB 健康检查失败](/troubleshooting/problems/network/lb-healthcheck-failed.md)
-    * [DNS 解析异常](/troubleshooting/problems/network/dns.md)
-    * [Service 不通](/troubleshooting/problems/network/service-unrecheable.md)
-    * [网络性能差](/troubleshooting/problems/network/low-throughput.md)
+    * [LB 健康检查失败](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/network/lb-healthcheck-failed.md)
+    * [DNS 解析异常](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/network/dns.md)
+    * [Service 不通](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/network/service-unrecheable.md)
+    * [网络性能差](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/network/low-throughput.md)
   * 集群排错
-    * [Node 全部消失](/troubleshooting/problems/cluster/node-all-gone.md)
-    * [Daemonset 没有被调度](/troubleshooting/problems/cluster/daemonset-not-scheduled.md)
+    * [Node 全部消失](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/cluster/node-all-gone.md)
+    * [Daemonset 没有被调度](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/cluster/daemonset-not-scheduled.md)
     * Apiserver 响应慢
     * ETCD 频繁选主
     * Node 异常
   * 经典报错
-    * [no space left on device](/troubleshooting/problems/errors/no-space-left-on-device.md)
-    * [arp_cache: neighbor table overflow!](/troubleshooting/problems/errors/arp_cache-neighbor-table-overflow.md)
-    * [Cannot allocate memory](/troubleshooting/problems/errors/cannot-allocate-memory.md)
+    * [no space left on device](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/errors/no-space-left-on-device.md)
+    * [arp\_cache: neighbor table overflow!](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/errors/arp_cache-neighbor-table-overflow.md)
+    * [Cannot allocate memory](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/errors/cannot-allocate-memory.md)
   * 其它排错
-    * [Job 无法被删除](/troubleshooting/problems/others/job-cannot-delete.md)
-    * [kubectl 执行 exec 或 logs 失败](/troubleshooting/problems/others/kubectl-exec-or-logs-failed.md)
-    * [内核软死锁](/troubleshooting/problems/others/kernel-solft-lockup.md)
+    * [Job 无法被删除](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/others/job-cannot-delete.md)
+    * [kubectl 执行 exec 或 logs 失败](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/others/kubectl-exec-or-logs-failed.md)
+    * [内核软死锁](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/problems/others/kernel-solft-lockup.md)
 * 处理实践
-  * [高负载](/troubleshooting/handle/high-load.md)
-  * [内存碎片化](/troubleshooting/handle/memory-fragmentation.md)
-  * [磁盘爆满](/troubleshooting/handle/disk-full.md)
-  * [inotify watch 耗尽](/troubleshooting/handle/runnig-out-of-inotify-watches.md)
-  * [PID 耗尽](/troubleshooting/handle/pid-full.md)
-  * [arp_cache 溢出](/troubleshooting/handle/arp_cache-overflow.md)
+  * [高负载](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/handle/high-load.md)
+  * [内存碎片化](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/handle/memory-fragmentation.md)
+  * [磁盘爆满](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/handle/disk-full.md)
+  * [inotify watch 耗尽](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/handle/runnig-out-of-inotify-watches.md)
+  * [PID 耗尽](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/handle/pid-full.md)
+  * [arp\_cache 溢出](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/handle/arp_cache-overflow.md)
 * 踩坑总结
-  * [cgroup 泄露](/troubleshooting/summary/cgroup-leaking.md)
-  * [tcp\_tw\_recycle 引发丢包](/troubleshooting/summary/tcp_tw_recycle-causes-packet-loss.md)
-  * [使用 oom-guard 在用户态处理 cgroup OOM](/troubleshooting/summary/handle-cgroup-oom-in-userspace-with-oom-guard.md)
+  * [cgroup 泄露](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/summary/cgroup-leaking.md)
+  * [tcp\_tw\_recycle 引发丢包](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/summary/tcp_tw_recycle-causes-packet-loss.md)
+  * [使用 oom-guard 在用户态处理 cgroup OOM](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/summary/handle-cgroup-oom-in-userspace-with-oom-guard.md)
   * conntrack 冲突导致丢包
 * 案例分享
-  * [驱逐导致服务中断](/troubleshooting/cases/eviction-leads-to-service-disruption.md)
-  * [DNS 5 秒延时](/troubleshooting/cases/dns-lookup-5s-delay.md)
-  * [arp_cache 溢出导致健康检查失败](/troubleshooting/cases/arp-cache-overflow-causes-healthcheck-failed.md)
-  * [跨 VPC 访问 NodePort 经常超时](/troubleshooting/cases/cross-vpc-connect-nodeport-timeout.md)
-  * [访问 externalTrafficPolicy 为 Local 的 Service 对应 LB 有时超时](/troubleshooting/cases/lb-with-local-externaltrafficpolicy-timeout-occasionally.md)
-  * [Pod 偶尔存活检查失败](/troubleshooting/cases/livenesprobe-failed-occasionally.md)
-  * [DNS 解析异常](/troubleshooting/cases/dns-resolution-abnormal.md)
-  * [Pod 访问另一个集群的 apiserver 有延时](/troubleshooting/cases/high-legacy-from-pod-to-another-apiserver.md)
-  * [LB 压测 NodePort CPS 低](/troubleshooting/cases/low-cps-from-lb-to-nodeport.md)
-  * [kubectl edit 或者 apply 报 SchemaError](/troubleshooting/cases/schemaerror-when-using-kubectl-apply-or-edit.md)
+  * [驱逐导致服务中断](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/cases/eviction-leads-to-service-disruption.md)
+  * [DNS 5 秒延时](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/cases/dns-lookup-5s-delay.md)
+  * [arp\_cache 溢出导致健康检查失败](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/cases/arp-cache-overflow-causes-healthcheck-failed.md)
+  * [跨 VPC 访问 NodePort 经常超时](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/cases/cross-vpc-connect-nodeport-timeout.md)
+  * [访问 externalTrafficPolicy 为 Local 的 Service 对应 LB 有时超时](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/cases/lb-with-local-externaltrafficpolicy-timeout-occasionally.md)
+  * [Pod 偶尔存活检查失败](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/cases/livenesprobe-failed-occasionally.md)
+  * [DNS 解析异常](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/cases/dns-resolution-abnormal.md)
+  * [Pod 访问另一个集群的 apiserver 有延时](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/cases/high-legacy-from-pod-to-another-apiserver.md)
+  * [LB 压测 NodePort CPS 低](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/cases/low-cps-from-lb-to-nodeport.md)
+  * [kubectl edit 或者 apply 报 SchemaError](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/cases/schemaerror-when-using-kubectl-apply-or-edit.md)
 * 排错技巧
-  * [分析 ExitCode 定位 Pod 异常退出原因](/troubleshooting/trick/analysis-exitcode.md)
-  * [容器内抓包定位网络问题](/troubleshooting/trick/capture-packets-in-container.md)
-  * [使用 Systemtap 定位疑难杂症](/troubleshooting/trick/use-systemtap-to-locate-problems.md)
+  * [分析 ExitCode 定位 Pod 异常退出原因](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/trick/analysis-exitcode.md)
+  * [容器内抓包定位网络问题](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/trick/capture-packets-in-container.md)
+  * [使用 Systemtap 定位疑难杂症](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/troubleshooting/trick/use-systemtap-to-locate-problems.md)
   * 使用 kubectl-debug 帮助定位问题
   * 分析 Docker 磁盘占用
 
@@ -261,7 +265,7 @@ k8s 在各个领域都发挥了巨大作用，我们会将 k8s 在这些领域�
 k8s 开放了很多扩展能力，基于这些扩展机制可以开发出各种功能的应用，比如集群管理应用、部署有状态服务的应用（Operator）等，知识库将介绍如何开发这些应用。
 
 * 开发环境搭建
-* [Go 语言编译原理与优化](/dev/golang-build.md)
+* [Go 语言编译原理与优化](https://github.com/yulibaozi/observability/tree/9f205a8def756c6b2474792e4d2a2bc79cc04fe2/dev/golang-build.md)
 * Operator
   * Operator 概述
   * operator-sdk
@@ -273,8 +277,8 @@ k8s 开放了很多扩展能力，基于这些扩展机制可以开发出各种�
 
 本书将支持中英文两个语言版本，通常文章会先用中文起草并更新，等待其内容较为成熟完善，更新不再频繁的时候才会翻译成英文，点击左上角切换语言。
 
-* 中文: https://k8s.imroc.io
-* English: https://k8s.imroc.io/v/en
+* 中文: [https://k8s.imroc.io](https://k8s.imroc.io)
+* English: [https://k8s.imroc.io/v/en](https://k8s.imroc.io/v/en)
 
 ## 项目源码
 
@@ -289,3 +293,4 @@ k8s 开放了很多扩展能力，基于这些扩展机制可以开发出各种�
 ![](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)
 
 [署名-非商业性使用-相同方式共享 4.0 \(CC BY-NC-SA 4.0\)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)
+
