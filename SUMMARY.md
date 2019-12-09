@@ -3,19 +3,31 @@
 * [序言](README.md)
 
 ## 部署指南 <a id="deploy"></a>
+* [部署流程分析和准备](/deploy/prepare.md)
+* [部署组件](/deploy/component.md)
+* [部署方式](/deploy/README.md)
+    * [二进制部署](/deploy/binary.md)
+    * [Docker容器部署](/deploy/docker.md) 
+    * [Kubernetes集群内部署](/deploy/docker.md)
 
-* [手工部署](/deploy/manual/README.md)
-  * [部署前的准备工作](/deploy/manual/prepare.md)
-  * [部署 ETCD](/deploy/manual/bootstrapping-etcd.md)
-  * [部署 Master](/deploy/manual/bootstrapping-master.md)
-  * [部署 Worker 节点](/deploy/manual/bootstrapping-worker-nodes.md)
-  * [部署附加组件](/deploy/manual/deploy-critical-addons.md)
-* [部署附加组件](/deploy/addons/README.md)
-  * [部署 CoreDNS](/deploy/addons/coredns.md)
-  * [以 Daemonset 方式部署 kube-proxy](/deploy/addons/kube-proxy.md)
-* [常见应用部署](/deploy/common/README.md)
-  * [ElasticSearch 与 Kibana](/deploy/common/elasticsearch/README.md)
-    * [使用 elastic-oparator 部署](/deploy/common/elasticsearch/install-elasticsearch-and-kibana-with-elastic-oparator.md)
+## 采集目标服务配置 <a id="server-config"></a>
+* [配置文件分析](/server-config/README.md)
+* [配置采集目标](/server-config/target.md)
+* [action 介绍](/server-config/action.md)
+* [标签介绍](/server-config/labels/README.md)
+    * [重命名标签](/server-config/labels/rename.md)
+    * [删除标签](/server-config/labels/delete.md)
+    * [不采集指定标签的目标](/server-config/labels/uncollect-tag.md)
+    * [只采集标签的目标](/server-config/labels/only-collect-tag.md)
+* [服务发现](/server-config/service-discovery/README.md)
+    * [静态服务发现](/server-config/service-discovery/static.md)
+    * [动态服务](/server-config/service-discovery/dynamic.md)
+        * [基于文件的服务发现](/server-config/file-sd-configs.md)
+        * [基于Kubernetes的服务发现](/server-config/kubernetes-sd-configs.md)
+        * [基于DNS的服务发现](/server-config/dns-sd-configs.md)
+## 报警服务配置 <a id="alert-config"></a>
+* [报警文件分析](/alert-config/README.md)
+
 
 ## 集群方案 <a id="plan"></a>
 
