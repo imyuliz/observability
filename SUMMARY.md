@@ -13,7 +13,7 @@
 ## 采集目标服务配置 <a id="server-config"></a>
 * [配置文件分析](/server-config/README.md)
 * [配置采集目标](/server-config/target.md)
-* [action 介绍](/server-config/action.md)
+* [Action 介绍](/server-config/action.md)
 * [标签介绍](/server-config/labels/README.md)
     * [重命名标签](/server-config/labels/rename.md)
     * [删除标签](/server-config/labels/delete.md)
