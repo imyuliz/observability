@@ -6,7 +6,7 @@
 
 * [流程分析及准备](/deploy/prepare.md)
 * [相关组件](/deploy/component.md)
-* [部署方式](/deploy/README.md)
+* [部署方式](/deploy/method/README.md)
     * [二进制部署](/deploy/method/binary.md)
     * [Docker容器部署](/deploy/method/docker.md) 
     * [Kubernetes集群内部署](/deploy/method/docker.md)
