@@ -3,12 +3,13 @@
 * [序言](README.md)
 
 ## 部署指南 <a id="deploy"></a>
+
 * [流程分析及准备](/deploy/prepare.md)
 * [相关组件](/deploy/component.md)
 * [部署方式](/deploy/README.md)
-    * [二进制部署](/deploy/binary.md)
-    * [Docker容器部署](/deploy/docker.md) 
-    * [Kubernetes集群内部署](/deploy/docker.md)
+    * [二进制部署](/deploy/method/binary.md)
+    * [Docker容器部署](/deploy/method/docker.md) 
+    * [Kubernetes集群内部署](/deploy/method/docker.md)
 
 ## 采集目标服务配置 <a id="server-config"></a>
 * [配置文件分析](/server-config/README.md)
