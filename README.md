@@ -7,7 +7,7 @@
 
 本书致力于**可观测性**,主要包括 指标监控, 链路追踪, 日志, 但现在正处于初级阶段。内容正在逐步规划中。
 
-## PromQL 致用
+## 致用 PromQL
 
 * [查询应用的所有实例指标, 善用group_*() on()](/promql/kubernetes_application_promql.md)
 

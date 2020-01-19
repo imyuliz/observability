@@ -3,7 +3,7 @@
 * [序言](README.md)
 
 
-## PromQL 致用 <a id="promql"></a>
+## 致用 PromQL<a id="promql"></a>
 * [查询应用的所有实例指标, 善用group_*() on()](/promql/kubernetes_application_promql.md)
 
 ## 部署指南 <a id="deploy"></a>
