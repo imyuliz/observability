@@ -111,8 +111,8 @@ type ObjectMeta struct
 1. group_left和group_right的使用是: 那边向量数据量多,标识那边, 如果左边向量的数据多,使用group_let; 如果右边向量的数据多则使用group_right.
 2. group_* 通常和on或者ingoring 一起使用。
 3. group_*() 和 on() 或者ingoring() 一起使用时, 不能同时指定同样/包含关系的label,否则会报错, 使用时,只需要在 on 或者 group_*() 其中一个操作符指定即可。
-4. group_left 对应的是向量之间的 many-to-one 的匹配关系
-5. group_right 对应的是向量之前的 one-to-many 的匹配关系
+4. group_left 对应 向量之间的 many-to-one 的匹配关系
+5. group_right 对应 向量之间的 one-to-many 的匹配关系
 6. prometheus 不支持向量 many-to-many 的匹配关系
 
 eg:
