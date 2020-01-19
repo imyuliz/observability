@@ -11,9 +11,15 @@
 |cAdvisor|github.com/google/cadvisor| 推荐| Google开源的**容器资源**监控和性能分析工具,为容器而生| 暂无|
 |kube-state-metrics|github.com/kubernetes/kube-state-metrics|推荐| 通过APIServer生产有关**资源对象**的状态指标元数据 |暂无|
 | node_exporter|github.com/prometheus/node_exporter| 推荐| 节点指标监控|  暂无|
+
+
 ## RoadMap
 
 本书致力于**可观测性**,主要包括 指标监控, 链路追踪, 日志, 但现在正处于初级阶段。内容正在逐步规划中。
+
+## PromQL 致用
+
+* [查询应用的所有实例指标, 善用group_*() on()](/promql/kubernetes_application_promql.md)
 
 ## 部署指南
 

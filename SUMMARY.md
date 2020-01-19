@@ -2,6 +2,10 @@
 
 * [序言](README.md)
 
+
+## PromQL 致用 <a id="promql"></a>
+* [查询应用的所有实例指标, 善用group_*() on()](/promql/kubernetes_application_promql.md)
+
 ## 部署指南 <a id="deploy"></a>
 
 * [流程分析及准备](/deploy/prepare.md)
@@ -26,6 +30,9 @@
         * [基于文件的服务发现](/server-config/file-sd-configs.md)
         * [基于Kubernetes的服务发现](/server-config/kubernetes-sd-configs.md)
         * [基于DNS的服务发现](/server-config/dns-sd-configs.md)
+
+## Exporter 部署
+* [Node-exporter](/exporter/node-exporter.md)
 ## 报警服务配置 <a id="alert-config"></a>
 * [报警文件分析](/alert-config/README.md)
 
