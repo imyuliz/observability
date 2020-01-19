@@ -3,15 +3,16 @@
 
 ### 主题: 以优雅的方式查询到某应用下所有实例的监控指标
 
-在PaaS 平台的研发过程中, 我们通常会列出某资源类型下某些实例或者所有实例的监控指标。
+在PaaS 平台的研发过程中, 我们通常需要查找某应用所有实例的监控指标。为了在Dashboard中能够很好的展示应用的运行状态,这个需求非常简单, 但在实现时需要考虑一些细节点:
 
 eg: 
 
-1. 我想要列出 prometheus-node-exporter 应用所有实例的监控内存监控指标。
-2. 由于某些应用的实例数的确太多, 实例数太多会导致PromQL执行慢,数据返回不及时, 影响用户体验。
-3. 由于某些应用是以sidecar方式部署的, 除了监控Pod内的主容器以外,还需要监控Pod内的副容器。
+1. 由于某些应用的实例数的确太多, 实例数太多会导致PromQL执行慢,数据返回不及时, 影响用户体验。
+2. 由于某些应用是以sidecar方式部署的, 除了监控Pod内的主容器以外,还需要监控Pod内的副容器。
+3. 是否支持此应用历史Pod指标查找。
+4. 未来有没有TopN需求等待。
 
-以上需求都是非常常见的,但需求的实现总是千差万别。
+稍加思考,你可能会使用一些暴力的方式实现, 也有可能会使用一些比较自然的方式来实现, 这里我列举了两种实现方式。
 
 已知参数:
 ```
@@ -24,7 +25,20 @@ eg:
 ### 需求实现方式
 #### 实现方式1:
 
-知道应用类型和应用名称, 通过K8s的clientset 查询到这个应用下的所有的Pod列表, 然后为每个Pod构造 PromQL 以for-range的方式请求prometheus的API执行PromeQL语句, 然后返回结果。
+已知应用类型和应用名称, 通过K8s clientset 查询到这个应用下的所有的Pod列表, 然后为每个Pod构造 PromQL 以for-range的方式请求prometheus的API执行PromeQL语句, 然后返回结果。
+
+伪代码:
+```
+func GetMetrics() {
+	r:=[]interface{}{}
+	podList,_: = k8sclient.CoreV1().Pod(namespace).List(meta.ListOptions{LabelSelector: labels.FormatLabels(labelsmap))
+	for _,v := podList.Item{
+		podPromQL:=fmt.Sprintf("promql ql")
+		sample:= prometheusapi.QueryRange(podPromQL)
+		r=append(r,sample)
+	}
+}
+```
 
 缺点:
 
@@ -34,7 +48,7 @@ eg:
 3. 从代码角度来说, for-range构造PromeQL 发起N个请求是没必要的。首先, 如果for-range 是同步执行,一个http request 需要1s, 你有10个Pod, 也就是在10s后你才能返回, 显然用户是不能接受的; 如果你使用异步执行, 对比于同步来说, 稍微好点, 用户不用等待那么长时间, 但一瞬间有n个请求到prometheus服务端, 如果Prometheus的查询性能不太好, 有获取不到数据的可能, 同时也很没有必要。
 
 
-#### 实现方式2:
+#### 实现方式2:(推荐)
 
 结合```cAdvisor```和```kube-state-metrics```的指标构造合理合理的PromQL, 一次性返回某应用下某Pod的指标。如果Pod数较多, 可以使用Topk 取前几条, 以便快速返回结果。
 
