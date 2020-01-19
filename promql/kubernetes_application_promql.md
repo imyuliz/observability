@@ -5,9 +5,10 @@
 
 在PaaS 平台的研发过程中, 我们通常会列出某资源类型下某些实例或者所有实例的监控指标。
 
-eg1: 我想要列出 prometheus-node-exporter 应用所有实例的监控内存监控指标。
-eg2: 由于某些应用的实例数的确太多, 实例数太多会导致PromQL执行慢,数据返回不及时, 影响用户体验。
-eg3: 由于某些应用是以sidecar方式部署的, 除了监控Pod内的主容器以外,还需要监控Pod内的副容器。
+eg: 
+1. 我想要列出 prometheus-node-exporter 应用所有实例的监控内存监控指标。
+2. 由于某些应用的实例数的确太多, 实例数太多会导致PromQL执行慢,数据返回不及时, 影响用户体验。
+3. 由于某些应用是以sidecar方式部署的, 除了监控Pod内的主容器以外,还需要监控Pod内的副容器。
 
 以上需求都是非常常见的,但需求的实现总是千差万别。
 
@@ -37,11 +38,13 @@ eg3: 由于某些应用是以sidecar方式部署的, 除了监控Pod内的主容
 结合```cAdvisor```和```kube-state-metrics```的指标构造合理合理的PromQL, 一次性返回某应用下某Pod的指标。如果Pod数较多, 可以使用Topk 取前几条, 以便快速返回结果。
 
 理由:
+
 1. cAdvisor 提供Pod和container的指标
 2. kube-state-metrics 提供指标 kube_pod_owner, kube_pod_owner会返回应用的Pod列表
 3.  PromQL on() 指定匹配标签, group_left/group_right 做一对多或者多对一的关联查询。
 
 优点: 
+
 1. 完全避开了实现方式上的所有不足。
 2. 可以查看历史pod的监控指标, 只要合理的设置prometheus 的查询条件Range
 
@@ -51,12 +54,12 @@ eg3: 由于某些应用是以sidecar方式部署的, 除了监控Pod内的主容
 container_memory_working_set_bytes{container!="POD",container!=""} / on(namespace,pod) group_left()  kube_pod_owner{owner_kind="DaemonSet",owner_name="prometheus-node-exporter",job="kube-state-metrics"} 
 ```
 
-1. 由于 kube_pod_owner 的value一定是1, 所以使用 /,* 并不影响结果。
+**备注**:由于 kube_pod_owner 的value一定是1, 所以使用乘除二元运算符并不影响结果。
 
 
 ### 知识扩展:
 
-1. 为什么会使用kube_pod_owner,
+#### 1. 为什么会使用kube_pod_owner?
 
 在Kubernetes的资源对象的ObjectMeta.Owner 有这样的定义
 
@@ -81,7 +84,7 @@ type ObjectMeta struct
 
 所以, 通过kubernetes 对Owner的定义, 我们可以确保了资源对象与Pod的级联关系, 不存在Pod列表异常/错乱情况, 可以放心使用。
 
-#### PromQL funcs:  
+#### 示例PromQL中的 内置func的使用规则和限制? 
 
 ##### on 和 ingoring
 
