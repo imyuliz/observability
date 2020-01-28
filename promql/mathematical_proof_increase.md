@@ -1,6 +1,4 @@
-# 以数学证明的方式深入理解increase, irate, rate
-
-
+# 以数学证明的方式深入理解increase()
 
 ## `increase()`
 

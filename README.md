@@ -7,6 +7,7 @@
 
 ## 致用 PromQL
 
+* [以数学证明的方式深入理解increase()](/promql/mathematical_proof_increase.md)
 * [查询应用的所有实例指标, 善用group_*() on()](/promql/kubernetes_application_promql.md)
 
 ## 部署指南
