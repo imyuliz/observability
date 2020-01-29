@@ -166,5 +166,6 @@ func extrapolatedRate(vals []Value, args Expressions, enh *EvalNodeHelper, isCou
 ```
 
 ### 相关链接
-[为什么 Prometheus increase 不返回整数?](https://lotabout.me/2019/QQA-Why-Prometheus-increase-return-float/)
-[Prometheus Extrapolation原理解析](https://ihac.xyz/2018/12/11/Prometheus-Extrapolation%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/)
+
+1. [为什么 Prometheus increase 不返回整数?](https://lotabout.me/2019/QQA-Why-Prometheus-increase-return-float/)
+2. [Prometheus Extrapolation原理解析](https://ihac.xyz/2018/12/11/Prometheus-Extrapolation%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/)
