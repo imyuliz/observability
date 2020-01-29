@@ -83,77 +83,85 @@ func funcIncrease(vals []Value, args Expressions, enh *EvalNodeHelper) Vector {
 // extrapolates if the first/last sample is close to the boundary, and returns
 // the result as either per-second (if isRate is true) or overall.
 func extrapolatedRate(vals []Value, args Expressions, enh *EvalNodeHelper, isCounter bool, isRate bool) Vector {
-	ms := args[0].(*MatrixSelector)
-	var (
-		matrix     = vals[0].(Matrix)
-		rangeStart = enh.ts - durationMilliseconds(ms.Range+ms.Offset)
-		rangeEnd   = enh.ts - durationMilliseconds(ms.Offset)
-	)
+    ms := args[0].(*MatrixSelector)
 
-	for _, samples := range matrix {
-		// No sense in trying to compute a rate without at least two points. Drop
-		// this Vector element.
-		if len(samples.Points) < 2 {
-			continue
-		}
-		var (
-			counterCorrection float64
-			lastValue         float64
-		)
-		for _, sample := range samples.Points {
-			if isCounter && sample.V < lastValue {
-				counterCorrection += lastValue
-			}
-			lastValue = sample.V
-		}
-		resultValue := lastValue - samples.Points[0].V + counterCorrection
-		// Duration between first/last samples and boundary of range.
-		durationToStart := float64(samples.Points[0].T-rangeStart) / 1000
-		durationToEnd := float64(rangeEnd-samples.Points[len(samples.Points)-1].T) / 1000
+    var (
+        matrix     = vals[0].(Matrix)
+        rangeStart = enh.ts - durationMilliseconds(ms.Range+ms.Offset)
+        rangeEnd   = enh.ts - durationMilliseconds(ms.Offset)
+    )
+    // 遍历多个vector，分别求解delta/increase/rate。
+    for _, samples := range matrix {
+        // 忽略少于两个点的vector。
+        if len(samples.Points) < 2 {
+            continue
+        }
+        var (
+            counterCorrection float64
+            lastValue         float64
+        )
+        // 由于counter存在reset的可能性，因此可能会出现0, 10, 5, ...这样的序列，
+        // Prometheus认为从0到5实际的增值为10 + 5 = 15，而非5。
+        // 这里的代码逻辑相当于将10累计到了couterCorrection中，最后补偿到总增值中。
+        for _, sample := range samples.Points {
+            if isCounter && sample.V < lastValue {
+                counterCorrection += lastValue
+            }
+            lastValue = sample.V
+        }
+        resultValue := lastValue - samples.Points[0].V + counterCorrection
 
-		sampledInterval := float64(samples.Points[len(samples.Points)-1].T-samples.Points[0].T) / 1000
-		averageDurationBetweenSamples := sampledInterval / float64(len(samples.Points)-1)
-		if isCounter && resultValue > 0 && samples.Points[0].V >= 0 {
-			// Counters cannot be negative. If we have any slope at
-			// all (i.e. resultValue went up), we can extrapolate
-			// the zero point of the counter. If the duration to the
-			// zero point is shorter than the durationToStart, we
-			// take the zero point as the start of the series,
-			// thereby avoiding extrapolation to negative counter
-			// values.
-			durationToZero := sampledInterval * (samples.Points[0].V / resultValue)
-			if durationToZero < durationToStart {
-				durationToStart = durationToZero
-			}
-		}
+        // 采样序列与用户请求的区间边界的距离。
+        // durationToStart表示第一个采样点到区间头部的距离。
+        // durationToEnd表示最后一个采样点到区间尾部的距离。
+        durationToStart := float64(samples.Points[0].T-rangeStart) / 1000
+        durationToEnd := float64(rangeEnd-samples.Points[len(samples.Points)-1].T) / 1000
+        // 采样序列的总时长。
+        sampledInterval := float64(samples.Points[len(samples.Points)-1].T-samples.Points[0].T) / 1000
+        // 采样序列的平均采样间隔，一般等于scrape interval。
+        averageDurationBetweenSamples := sampledInterval / float64(len(samples.Points)-1)
 
-		// If the first/last samples are close to the boundaries of the range,
-		// extrapolate the result. This is as we expect that another sample
-		// will exist given the spacing between samples we've seen thus far,
-		// with an allowance for noise.
-		extrapolationThreshold := averageDurationBetweenSamples * 1.1
-		extrapolateToInterval := sampledInterval
+        if isCounter && resultValue > 0 && samples.Points[0].V >= 0 {
+            // 由于counter不能为负数，这里对零点位置作一个线性估计，
+            // 确保durationToStart不会超过durationToZero。
+            durationToZero := sampledInterval * (samples.Points[0].V / resultValue)
+            if durationToZero < durationToStart {
+                durationToStart = durationToZero
+            }
+        }
 
-		if durationToStart < extrapolationThreshold {
-			extrapolateToInterval += durationToStart
-		} else {
-			extrapolateToInterval += averageDurationBetweenSamples / 2
-		}
-		if durationToEnd < extrapolationThreshold {
-			extrapolateToInterval += durationToEnd
-		} else {
-			extrapolateToInterval += averageDurationBetweenSamples / 2
-		}
-		resultValue = resultValue * (extrapolateToInterval / sampledInterval)
-		if isRate {
-			resultValue = resultValue / ms.Range.Seconds()
-		}
+        // *************** extrapolation核心部分 *****************
+        // 将平均sample间隔乘以1.1作为extrapolation的判断间隔。
+        extrapolationThreshold := averageDurationBetweenSamples * 1.1
+        extrapolateToInterval := sampledInterval
+        // 如果采样序列与用户请求的区间在头部的距离不超过阈值的话，直接补齐；
+        // 如果超过阈值的话，只补齐一般的平均采样间隔。这里解决了上述的速率爆炸问题。
+        if durationToStart < extrapolationThreshold {
+            // 在scrape interval不发生变化、数据不缺失的情况下，
+            // 基本都进入这个条件。
+            extrapolateToInterval += durationToStart
+        } else {
+            // 基本不会出现，除非scrape interval突然变很大，或者数据缺失。
+            extrapolateToInterval += averageDurationBetweenSamples / 2
+        }
+        // 同理，参上。
+        if durationToEnd < extrapolationThreshold {
+            extrapolateToInterval += durationToEnd
+        } else {
+            extrapolateToInterval += averageDurationBetweenSamples / 2
+        }
+        // 对增值进行等比放大。
+        resultValue = resultValue * (extrapolateToInterval / sampledInterval)
+        // 如果是求解rate，除以总的时长。
+        if isRate {
+            resultValue = resultValue / ms.Range.Seconds()
+        }
 
-		enh.out = append(enh.out, Sample{
-			Point: Point{V: resultValue},
-		})
-	}
-	return enh.out
+        enh.out = append(enh.out, Sample{
+            Point: Point{V: resultValue},
+        })
+    }
+    return enh.out
 }
 ```
 
