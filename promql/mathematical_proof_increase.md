@@ -1,7 +1,5 @@
 # 以数学证明的方式深入理解increase()
-<div align=right> 2020.1.29 </div>
 ## `increase()`
-
 ### 官方定义
 `increase(v range-vector)` calculates the increase in the
 time series in the range vector. 
