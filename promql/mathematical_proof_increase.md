@@ -34,11 +34,18 @@ increase(http_requests_total{job="api-server"}[5m])
 
 ### 俗语定义
 
-1. increase 返回的是区间向量在指定时间范围内(start ~ end),指定时间范围内的增长数。
+1. increase 返回的是区间向量在指定时间范围内(start ~ end)指定时间范围内的增长数。
 2. increase 只能和计数器类型的指标一起使用.
 
 
 ### 数学证明
+
+ **样本数据:**
+
+![样本数据](/promql/basedata.png)
+
+
+**数学计算与对比:**
 
 3m, 5m http_requests_total增长数 PromQL:
 ```
@@ -53,14 +60,14 @@ increase(http_requests_total{job="kubernetes-apiservers"}[5m])
 
 通过上面的数学推断和prometheus 指标对比发现:
 
-1. 通过数学计算得出的1m,3m,5m 增长数与prometheus 计算出来的结果表现一致。
+1. 通过数学计算得出的 1m(4次), 3m(12次), 5m(20次) 增长数与prometheus 计算出来的结果表现一致。
 2. increase() 计算的是指定时间范围内的增长数, 单位:增长数/指定时间范围,
 
 总结公式:
 
- $$ increase = \frac{\Delta r}{\Delta t}  * t_{指定的时间范围}$$
+ $$ increase() = \frac{\Delta r}{\Delta t}  * t_{指定的时间范围}$$
 
-## 源码分析:
+### 源码分析:
 
 ```golang
 
@@ -149,3 +156,7 @@ func extrapolatedRate(vals []Value, args Expressions, enh *EvalNodeHelper, isCou
 	return enh.out
 }
 ```
+
+### 相关链接
+[为什么 Prometheus increase 不返回整数?](https://lotabout.me/2019/QQA-Why-Prometheus-increase-return-float/)
+[Prometheus Extrapolation原理解析](https://ihac.xyz/2018/12/11/Prometheus-Extrapolation%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/)
