@@ -10,6 +10,9 @@
 * [以数学证明的方式深入理解increase()](/promql/mathematical_proof_increase.md)
 * [查询应用的所有实例指标, 善用group_*() on()](/promql/kubernetes_application_promql.md)
 
+## Kubernetes 常用PromQL
+* [获取Kubernetes 资源对象的Pod列表PromQL](/kubernetes/resource_type_pods_promql.md)
+
 ## 部署指南
 
 Prometheus 可以支持多种部署方式, 这里将列举 二进制部署, Docker 容器部署, Kubernetes 部署。后面将会针对各种场景的脚本部署, Operator部署。
