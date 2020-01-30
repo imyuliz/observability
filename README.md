@@ -7,9 +7,11 @@
 
 #### 致用 PromQL
 
-* [以数学证明的方式深入理解increase()](/promql/principle/mathematical_proof_increase.md)
-* [查询应用的所有实例指标, 善用group_*() on()](/promql/principle/kubernetes_application_promql.md)
-* [获取Kubernetes 资源对象的Pod列表PromQL](/promql/use-promql/resource_type_pods_promql.md)
+* 原理分析  
+    * [以数学证明的方式深入理解increase()](/promql/principle/mathematical_proof_increase.md)
+    * [查询应用的所有实例指标, 善用group_*() on()](/promql/principle/kubernetes_application_promql.md)
+* 常用PromQL
+    * [获取Kubernetes 资源对象的Pod列表PromQL](/promql/use-promql/resource_type_pods_promql.md)
 
 #### 部署指南
 

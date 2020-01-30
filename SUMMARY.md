@@ -4,15 +4,14 @@
 
 
 ## 致用 PromQL<a id="promql"></a>
-* [原理分析](/promql/principle)
+* [原理分析](/promql/principle/README.md)
     * [以数学证明的方式深入理解increase()](/promql/principle/mathematical_proof_increase.md)
     * [查询应用的所有实例指标, 善用group_*() on()](/promql/principle/kubernetes_application_promql.md)
 
-* [常用PromQL](/promql/use-promql)
+* [常用PromQL](/promql/use-promql/README.md)
     * [获取Kubernetes 资源对象的Pod列表PromQL](/promql/use-promql/resource_type_pods_promql.md)
 
 ## 部署指南 <a id="deploy"></a>
-
 * [流程分析及准备](/deploy/prepare.md)
 * [相关组件](/deploy/component.md)
 * [部署方式](/deploy/method/README.md)
