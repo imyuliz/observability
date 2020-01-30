@@ -15,7 +15,7 @@ This example will return a vector with each time series having a `foo` label wit
 label_join(up{job="api-server",src1="a",src2="b",src3="c"}, "foo", ",", "src1", "src2", "src3")
 ```
 
-#### 通俗易懂
+#### 俗语定义
 
 `label_join()` 专用于为 PromQL 结果集添加新的一个标签。新标签的值是指定的一个或多个源标签的值,多个值以`separator`(大多数情况分割符设置为`,`)拼接而成。使用的格式:
 ```
@@ -58,7 +58,7 @@ label with the value `a` added to it:
 label_replace(up{job="api-server",service="a:c"}, "foo", "$1", "service", "(.*):.*")
 ```
 
-#### 通俗易懂
+#### 俗语定义
 
 `label_replace()`专用于替换 PromQL 结果集中某一个标签的值。使用的格式:
 ```
