@@ -62,10 +62,8 @@ label_replace(up{job="api-server",service="a:c"}, "foo", "$1", "service", "(.*):
 
 `label_replace()`专用于替换 PromQL 结果集中某一个标签的值。使用的格式:
 ```
-label_replace(v instant-vector, dst_label string,
-replacement string, src_label string, regex string)
-label_replace(瞬时向量 instant-vector, 目标标签key string,
-替换值 string, 源标签 string, 值的正则表达式 string)
+label_replace(v instant-vector, dst_label string, replacement string, src_label string, regex string)
+label_replace(瞬时向量 instant-vector, 目标标签key string, 替换值 string, 源标签 string, 值的正则表达式 string)
 ```
 对于v中的每个时间序列, 将正则表达式与标签src_label的值相匹配。 如果匹配，则返回时间序列，标签dst_label替换为目标标签。 `$1`替换为第一个匹配的子组，`$2`替换为第二个,等等。如果正则表达式不匹配，则返回时间序列不变。
 
