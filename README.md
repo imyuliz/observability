@@ -5,15 +5,13 @@
 
 本书致力于**可观测性**,主要包括 指标监控, 链路追踪, 日志, 但现在正处于初级阶段。内容正在逐步规划中。
 
-## 致用 PromQL
+#### 致用 PromQL
 
-* [以数学证明的方式深入理解increase()](/promql/mathematical_proof_increase.md)
-* [查询应用的所有实例指标, 善用group_*() on()](/promql/kubernetes_application_promql.md)
+* [以数学证明的方式深入理解increase()](/promql/principle/mathematical_proof_increase.md)
+* [查询应用的所有实例指标, 善用group_*() on()](/promql/principle/kubernetes_application_promql.md)
+* [获取Kubernetes 资源对象的Pod列表PromQL](/promql/use-promql/resource_type_pods_promql.md)
 
-## Kubernetes 常用PromQL
-* [获取Kubernetes 资源对象的Pod列表PromQL](/kubernetes/resource_type_pods_promql.md)
-
-## 部署指南
+#### 部署指南
 
 Prometheus 可以支持多种部署方式, 这里将列举 二进制部署, Docker 容器部署, Kubernetes 部署。后面将会针对各种场景的脚本部署, Operator部署。
 
@@ -35,28 +33,28 @@ Prometheus 可以支持多种部署方式, 这里将列举 二进制部署, Dock
     * Kubernetes服务发现 
 * Action
 
-## Exporter
+#### Exporter
 
 * node-exporter 部署
 * kube-state-metrics 部署
 * 开发 exporter
 
-## Pushgateway
+#### Pushgateway
 
 ## PromQL 
 * Metrics类型
 * 常用 PromeQL
 
-##  数据存储
+####  数据存储
 * 数据存储分析
 * Local Store
 * Remote Store
 
-## 数据可视化
+#### 数据可视化
 
 * Grafana
 
-## AlertManager 
+#### AlertManager 
 * 部署
 * 触发逻辑
 *  告警方式
@@ -66,27 +64,27 @@ Prometheus 可以支持多种部署方式, 这里将列举 二进制部署, Dock
     * 钉钉
     * Webhook 
 
-## 集群
+#### 集群
 
 * 联邦
 * Thanos
 
-## Kubernetes 监控方案
+#### Kubernetes 监控方案
 * node-exporter
 * kube-state-metrics
 * cAdvisor
 
-## 常见应用监控
+#### 常见应用监控
 
 * Mysql
 * Redis
 * Nginx
 
-## 性能调优
+#### 性能调优
 
-## 常见问题
+#### 常见问题
 
-# Kubernetes 监控组件推荐
+#### Kubernetes 监控组件推荐
 
 
 | 组件名 |项目地址| 状态 | 场景|安装手册|
