@@ -8,6 +8,7 @@
 #### 致用 PromQL
 
 * 原理分析  
+    * [深入理解Step](/promql/principle/range.md)
     * [PromQL 动态标签处理](/promql/principle/dynamic_label.md)
     * [以数学证明的方式深入理解increase()](/promql/principle/mathematical_proof_increase.md)
     * [查询应用的所有实例指标, 善用group_*() on()](/promql/principle/kubernetes_application_promql.md)
